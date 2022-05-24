@@ -14,7 +14,7 @@ const postController = {
   },
   async postPost(req, res, next) {
     const data = req.body;
-    if (data.content && data.user) {
+    if (data.content) {
       const newPost = await Post.create(
         {
           user: req.user._id,
