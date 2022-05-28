@@ -1,0 +1,386 @@
+{
+	"info": {
+		"_postman_id": "9986e80b-876c-4778-af99-0321c530b1b9",
+		"name": "week7",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "15020220"
+	},
+	"item": [
+		{
+			"name": "users",
+			"item": [
+				{
+					"name": "註冊",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n  \"name\": \"test\",\n  \"email\": \"123@gmail.com\",\n  \"password\": \"123123abc\",\n  \"confirmPassword\": \"123123abc\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "https://quiet-dawn-95060.herokuapp.com/users/sign_up",
+							"protocol": "https",
+							"host": [
+								"quiet-dawn-95060",
+								"herokuapp",
+								"com"
+							],
+							"path": [
+								"users",
+								"sign_up"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "登入",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n  \"email\": \"123@gmail.com\",\n  \"password\": \"123123abc\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "https://quiet-dawn-95060.herokuapp.com/users/sign_in",
+							"protocol": "https",
+							"host": [
+								"quiet-dawn-95060",
+								"herokuapp",
+								"com"
+							],
+							"path": [
+								"users",
+								"sign_in"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "修改密碼（需登入）",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjYyNzdkMGE0ODdjYjEwMWQ0MmI5MmM3MSIsImlhdCI6MTY1MjAxOTk2NSwiZXhwIjoxNjU5Nzk1OTY1fQ.ECZWDyVIeGkXudi_03qPiqH_u4THXOsq_cSiH7OCej4",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n  \"password\": \"123123abc\",\n  \"confirmPassword\": \"123123abc\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "https://quiet-dawn-95060.herokuapp.com/users/updatePassword",
+							"protocol": "https",
+							"host": [
+								"quiet-dawn-95060",
+								"herokuapp",
+								"com"
+							],
+							"path": [
+								"users",
+								"updatePassword"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "取得個人資料（需登入）",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjYyNzdkMGE0ODdjYjEwMWQ0MmI5MmM3MSIsImlhdCI6MTY1MjI4NjYzMiwiZXhwIjoxNjYwMDYyNjMyfQ.KQMvghOLgHBtI32fdM9A2CZBjD2yblTX6WhJT4tiWXQ",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "https://quiet-dawn-95060.herokuapp.com/users/profile",
+							"protocol": "https",
+							"host": [
+								"quiet-dawn-95060",
+								"herokuapp",
+								"com"
+							],
+							"path": [
+								"users",
+								"profile"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "修改個人資料（需登入）",
+					"request": {
+						"method": "PATCH",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjYyN2IxNTlhMDlhZmMwZTU4NzZiNTE5MSIsImlhdCI6MTY1MjIzMzkwMCwiZXhwIjoxNjYwMDA5OTAwfQ.07q6Ib5tSZ1CYJLg-SaGIdGUnuyDaHY6wX9NnuM23io",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"photo\": \"\",\n    \"name\": \"test123123\",\n    \"gender\": \"female\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "https://quiet-dawn-95060.herokuapp.com/users/profile",
+							"protocol": "https",
+							"host": [
+								"quiet-dawn-95060",
+								"herokuapp",
+								"com"
+							],
+							"path": [
+								"users",
+								"profile"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "posts",
+			"item": [
+				{
+					"name": "取得貼文（需登入）",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjYyNzdkMGE0ODdjYjEwMWQ0MmI5MmM3MSIsImlhdCI6MTY1MjAxOTk2NSwiZXhwIjoxNjU5Nzk1OTY1fQ.ECZWDyVIeGkXudi_03qPiqH_u4THXOsq_cSiH7OCej4",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "https://quiet-dawn-95060.herokuapp.com/posts",
+							"protocol": "https",
+							"host": [
+								"quiet-dawn-95060",
+								"herokuapp",
+								"com"
+							],
+							"path": [
+								"posts"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "新增貼文（需登入）",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjYyNzdkMGE0ODdjYjEwMWQ0MmI5MmM3MSIsImlhdCI6MTY1MjAxOTk2NSwiZXhwIjoxNjU5Nzk1OTY1fQ.ECZWDyVIeGkXudi_03qPiqH_u4THXOsq_cSiH7OCej4",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{ \n  \"content\": \"測試123\",\n  \"type\": \"person\",\n  \"tags\": [\"感情\"]\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "https://quiet-dawn-95060.herokuapp.com/posts",
+							"protocol": "https",
+							"host": [
+								"quiet-dawn-95060",
+								"herokuapp",
+								"com"
+							],
+							"path": [
+								"posts"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "修改貼文（需登入）",
+					"request": {
+						"method": "PATCH",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjYyNzdkMGE0ODdjYjEwMWQ0MmI5MmM3MSIsImlhdCI6MTY1MjAxOTk2NSwiZXhwIjoxNjU5Nzk1OTY1fQ.ECZWDyVIeGkXudi_03qPiqH_u4THXOsq_cSiH7OCej4",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{ \n  \"content\": \"測試123\",\n  \"user\": \"624db34461939813513ce238\",\n  \"type\": \"person\",\n  \"tags\": [\"感情\"]\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "https://quiet-dawn-95060.herokuapp.com/posts/627800b4733583abe575903b",
+							"protocol": "https",
+							"host": [
+								"quiet-dawn-95060",
+								"herokuapp",
+								"com"
+							],
+							"path": [
+								"posts",
+								"627800b4733583abe575903b"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "刪除單筆 post （需登入）",
+					"protocolProfileBehavior": {
+						"disabledSystemHeaders": {}
+					},
+					"request": {
+						"method": "DELETE",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjYyN2IxNTlhMDlhZmMwZTU4NzZiNTE5MSIsImlhdCI6MTY1MjIzMzkwMCwiZXhwIjoxNjYwMDA5OTAwfQ.07q6Ib5tSZ1CYJLg-SaGIdGUnuyDaHY6wX9NnuM23io",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "https://quiet-dawn-95060.herokuapp.com/posts/624efd5ce43991394e4adcf6",
+							"protocol": "https",
+							"host": [
+								"quiet-dawn-95060",
+								"herokuapp",
+								"com"
+							],
+							"path": [
+								"posts",
+								"624efd5ce43991394e4adcf6"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "刪除所有 posts（需登入）",
+					"request": {
+						"method": "DELETE",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjYyN2IxNTlhMDlhZmMwZTU4NzZiNTE5MSIsImlhdCI6MTY1MjIzMzkwMCwiZXhwIjoxNjYwMDA5OTAwfQ.07q6Ib5tSZ1CYJLg-SaGIdGUnuyDaHY6wX9NnuM23io",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "https://quiet-dawn-95060.herokuapp.com/posts/",
+							"protocol": "https",
+							"host": [
+								"quiet-dawn-95060",
+								"herokuapp",
+								"com"
+							],
+							"path": [
+								"posts",
+								""
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "upload image",
+			"item": [
+				{
+					"name": "上傳圖片（需登入）",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjYyN2IxNTlhMDlhZmMwZTU4NzZiNTE5MSIsImlhdCI6MTY1MzA1ODgwNywiZXhwIjoxNjYwODM0ODA3fQ.zn6lc4xRDXnvfzvtrmH6FyHObSP1NEi8uPl-aTxrA_4",
+									"type": "string"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "formdata",
+							"formdata": [
+								{
+									"key": "image",
+									"type": "file",
+									"src": "/Users/hsinyu/Downloads/679-500x500.jpeg"
+								},
+								{
+									"key": "isAvatar",
+									"value": "true",
+									"type": "text",
+									"disabled": true
+								}
+							]
+						},
+						"url": {
+							"raw": "https://quiet-dawn-95060.herokuapp.com/api/v1/upload",
+							"protocol": "https",
+							"host": [
+								"quiet-dawn-95060",
+								"herokuapp",
+								"com"
+							],
+							"path": [
+								"api",
+								"v1",
+								"upload"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		}
+	]
+}
