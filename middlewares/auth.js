@@ -17,7 +17,7 @@ const isAuth = handleErrorAsync(async (req, res, next) => {
   const decoded = await new Promise((resolve, reject) => {
     jwt.verify(token, process.env.JWT_SECRET, (err, payload) => {
       if (err) {
-        setTimeout(reject(err), 500)
+        reject(err)
       } else {
         resolve(payload);
       }
