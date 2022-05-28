@@ -52,6 +52,10 @@ const errorHandler = (err, req, res, next) => {
     } else if (err.name === 'MulterError' || err.name === 'Error') {
       err.statusCode = 400
       err.isOperational = true;
+    } else if (err.name === 'JsonWebTokenError') {
+      err.statusCode = 401
+      err.isOperational = true;
+      err.message = 'token 異常';
     }
     resErrorProd(err, res)
   }
