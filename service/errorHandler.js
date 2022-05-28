@@ -49,6 +49,9 @@ const errorHandler = (err, req, res, next) => {
       err.statusCode = 400
       err.isOperational = true;
       err.message = 'id 不存在';
+    } else if (err.name === 'MulterError' || err.name === 'Error') {
+      err.statusCode = 400
+      err.isOperational = true;
     }
     resErrorProd(err, res)
   }
