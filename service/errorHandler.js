@@ -1,10 +1,10 @@
 const resErrorProd = (err, res) => {
 
   if (err.isOperational) {
-    res.status(err.statusCode).json({
+    setTimeout(res.status(err.statusCode).json({
       status: err.status,
       message: err.message
-    });
+    }))
   } else{
     // log 紀錄
     console.error('出現重大錯誤', err);
