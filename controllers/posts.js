@@ -31,7 +31,7 @@ const postController = {
     }
   },
   async deletePosts(req, res, next) {
-    console.log('req.originalUrl:', req.originalUrl);
+
     if (req.originalUrl === '/posts/') {
       return next(AppError(400, "刪除單筆資料請輸入 id", next));
     }

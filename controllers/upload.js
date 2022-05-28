@@ -1,6 +1,5 @@
 const sizeOf = require('image-size');
 const { ImgurClient } = require('imgur');
-const upload = require('../service/image');
 const appError = require('../service/appError');
 const handleSuccess = require('../service/sucessHandler');
 

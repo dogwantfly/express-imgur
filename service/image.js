@@ -6,7 +6,7 @@ const upload = multer({
     fileSize: 2 * 1024 * 1024,
   },
   fileFilter(req, file, cb) {
-    console.log('file', file)
+
     const ext = path.extname(file.originalname).toLowerCase();
     if (ext !== '.jpg' && ext !== '.png' && ext !== '.jpeg') {
       cb(new Error("檔案格式錯誤，僅限上傳 jpg、jpeg 與 png 格式。"));
