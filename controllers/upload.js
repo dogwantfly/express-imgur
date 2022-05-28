@@ -15,9 +15,13 @@ const uploadController = {
         return next(appError(400, "尚未上傳檔案", next));
       }
       const dimensions = sizeOf(req.files[0].buffer);
+      // 是否為上傳大頭貼
       const isAvatar = req.body.isAvatar;
       if(isAvatar && (dimensions.width !== dimensions.height)) {
         return next(appError(400, "圖片長寬不符合 1:1 尺寸。", next))
+      }
+      if(dimensions.width < 300 || dimensions.height < 300) {
+        return next(appError(400, "圖片解析度寬度至少 300 像素以上", next))
       }
       const client = new ImgurClient({
         clientId: process.env.IMGUR_CLIENTID,
