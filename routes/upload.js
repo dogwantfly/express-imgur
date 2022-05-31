@@ -5,7 +5,7 @@ const handleErrorAsync = require('../service/handleErrorAsync');
 const { isAuth } = require('../middlewares/auth');
 const upload = require('../service/image');
 
-router.post('/', isAuth, upload, handleErrorAsync(uploadController.uploadImage));
+router.post('/', upload, isAuth, handleErrorAsync(uploadController.uploadImage));
 
 
 
